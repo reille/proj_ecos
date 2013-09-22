@@ -1,0 +1,7 @@
+/fileio1.c////*////
+/fnmatch.c////*////
+/pselect.c////*////
+/select.c////*////
+/socket.c////*////
+/stdio.c////*////
+/testfs.c////*////

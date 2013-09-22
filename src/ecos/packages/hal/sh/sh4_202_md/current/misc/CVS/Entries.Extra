@@ -1,0 +1,4 @@
+/redboot_EEPROM.ecm////*////
+/redboot_RAM.ecm////*////
+/redboot_ROM.ecm////*////
+/sh4_202_md.ld////*////

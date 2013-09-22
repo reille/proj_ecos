@@ -1,0 +1,234 @@
+# ====================================================================
+#
+#      framebuf_stm32.cdl
+#
+#      Framebuffer device driver for the stm32f10xxx target.
+#
+# ====================================================================
+# ####ECOSGPLCOPYRIGHTBEGIN####                                             
+# -------------------------------------------                               
+# This file is part of eCos, the Embedded Configurable Operating System.    
+# Copyright (C) 2008, 2009 Free Software Foundation, Inc.                         
+#
+# eCos is free software; you can redistribute it and/or modify it under     
+# the terms of the GNU General Public License as published by the Free      
+# Software Foundation; either version 2 or (at your option) any later       
+# version.                                                                  
+#
+# eCos is distributed in the hope that it will be useful, but WITHOUT       
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or     
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License     
+# for more details.                                                         
+#
+# You should have received a copy of the GNU General Public License         
+# along with eCos; if not, write to the Free Software Foundation, Inc.,     
+# 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.             
+#
+# As a special exception, if other files instantiate templates or use       
+# macros or inline functions from this file, or you compile this file       
+# and link it with other works to produce a work based on this file,        
+# this file does not by itself cause the resulting work to be covered by    
+# the GNU General Public License. However the source code for this file     
+# must still be made available in accordance with section (3) of the GNU    
+# General Public License v2.                                                
+#
+# This exception does not invalidate any other reasons why a work based     
+# on this file might be covered by the GNU General Public License.          
+# -------------------------------------------                               
+# ####ECOSGPLCOPYRIGHTEND####                                               
+# ====================================================================
+######DESCRIPTIONBEGIN####
+#
+# Author(s):     reille
+# Date:          2013-04-28
+#
+#####DESCRIPTIONEND####
+#========================================================================
+
+cdl_package CYGPKG_DEVS_FRAMEBUF_STM32 {
+    display		"STM32 Framebuffer device driver"
+    parent		CYGPKG_IO_FRAMEBUF
+    active_if	CYGPKG_IO_FRAMEBUF
+	active_if   CYGPKG_HAL_CORTEXM_STM32
+    include_dir	cyg/io
+
+    description "
+        This package provides a framebuffer device driver for the
+        stm32f10xxx target."
+
+    for { set _fb 0 } { $_fb < 1 } { incr _fb } {
+        cdl_component CYGPKG_DEVS_FRAMEBUF_STM32_FB$_fb {
+            display	"Provide framebuffer device fb$_fb"
+            description "
+                The stm32f10xxx target framebuffer driver can provide one
+                framebuffer devices, named fb0. Device's width, height, 
+                depth, and colour format can be controlled."
+
+            flavor		    bool
+            default_value	[expr $_fb ? 0 : 1]
+            implements		CYGINT_IO_FRAMEBUF_DEVICES
+            implements		CYGHWR_IO_FRAMEBUF_FUNCTIONALITY_DOUBLE_BUFFER
+            requires		is_substr(CYGDAT_IO_FRAMEBUF_DEVICES, \" fb[set _fb] \")
+
+            cdl_option CYGNUM_DEVS_FRAMEBUF_STM32_FB[set _fb]_WIDTH {
+                display		"fb$_fb width"
+                flavor 		data
+                default_value	400
+                legal_values	16 to 4096
+            }
+
+            cdl_option CYGNUM_DEVS_FRAMEBUF_STM32_FB[set _fb]_HEIGHT {
+                display		"fb$_fb height"
+                flavor 		data
+                default_value	240
+                legal_values	16 to 4096
+            }
+
+            cdl_option CYGDAT_DEVS_FRAMEBUF_STM32_FB[set _fb]_FORMAT {
+                display		"fb$_fb format"
+                flavor		data
+                if { 0 } {
+                    legal_values	{ "1BPP_BE_PAL888"  "1BPP_LE_PAL888"
+                        "2BPP_BE_PAL888"  "2BPP_LE_PAL888"
+                        "4BPP_BE_PAL888"  "4BPP_LE_PAL888"
+                        "8BPP_PAL888"     "8BPP_TRUE_332"
+                        "16BPP_TRUE_565"  "16BPP_TRUE_555"
+                        "32BPP_TRUE_0888"
+                    }
+                } else {
+                    legal_values	{
+                        "8BPP_PAL888"     "8BPP_TRUE_332"
+                        "16BPP_TRUE_565"  "16BPP_TRUE_555"
+                        "32BPP_TRUE_0888"
+                    }
+                }
+                default_value	{ "16BPP_TRUE_565" }
+                if { 0 } {
+                    description "None."
+                } else {
+                    description "None."
+                }
+            }
+
+            cdl_component CYGIMP_DEVS_FRAMEBUF_STM32_FB[set _fb]_VIEWPORT {
+                display		    "fb$_fb provides viewport support"
+                default_value	0
+                implements	    CYGHWR_IO_FRAMEBUF_FUNCTIONALITY_VIEWPORT
+                description "
+                    Optionally framebuffer device $_fb can support a viewport.
+                    In other words only a subset of the framebuffer, the viewport,
+                    is actually visible on the display and application code can
+                    move this viewport."
+
+                cdl_option CYGNUM_DEVS_FRAMEBUF_STM32_FB[set _fb]_VIEWPORT_WIDTH {
+                    display		    "fb$_fb viewport width"
+                    flavor		    data
+                    default_value	CYGNUM_DEVS_FRAMEBUF_STM32_FB[set _fb]_WIDTH
+                    legal_values	16 to CYGNUM_DEVS_FRAMEBUF_STM32_FB[set _fb]_WIDTH
+                }
+
+                cdl_option CYGNUM_DEVS_FRAMEBUF_STM32_FB[set _fb]_VIEWPORT_HEIGHT {
+                    display		    "fb$_fb viewport height"
+                    flavor		    data
+                    default_value	CYGNUM_DEVS_FRAMEBUF_STM32_FB[set _fb]_HEIGHT
+                    legal_values	16 to CYGNUM_DEVS_FRAMEBUF_STM32_FB[set _fb]_HEIGHT
+                }
+            }
+
+            cdl_option CYGNUM_DEVS_FRAMEBUF_STM32_FB[set _fb]_PAGE_FLIPPING {
+                display		    "fb$_fb supports page flipping"
+                flavor		    booldata
+                default_value	0
+                legal_values	2 3 4
+                description "
+                    Optionally framebuffer device $_fb can support page flipping.
+                    The device supports between two and four pages, only one
+                    of which is visible on the display. This allows code to
+                    update one page without disturbing what is currently visible."
+            }
+        }
+
+        # Eliminate any framebuffer devices that are no longer enabled.
+        requires (CYGPKG_DEVS_FRAMEBUF_STM32_FB$_fb || !is_substr(CYGDAT_IO_FRAMEBUF_DEVICES, \" fb[set _fb] \"))
+    }
+
+    cdl_component CYGPKG_DEVS_FRAMEBUF_STM32_FUNCTIONALITY {
+        display		"Functionality supported by the enabled framebuffer(s)"
+        flavor		none
+        description "
+            The generic framebuffer code needs configure-time information about
+            functionality of the enabled framebuffer or framebuffers. Usually
+            all this information is fixed by the hardware, but the synthetic
+            target framebuffer support is more flexible than real hardware. To
+            cope with this some dummy options are needed."
+
+        active_if { CYGPKG_DEVS_FRAMEBUF_STM32_FB0}
+        make -priority=1 {
+            <PREFIX>/include/cyg/io/framebufs/stm32_fb.h :      \
+                <PACKAGE>/src/gen_stm32fb.tcl                   \
+                <PREFIX>/include/pkgconf/devs_framebuf_stm32.h
+            tclsh $< $(PREFIX)
+        }
+        compile stm32fb.c
+        compile -library=libextras.a stm32fb_init.cxx
+
+        cdl_option CYGHWR_DEVS_FRAMEBUF_STM32_FUNCTIONALITY_32BPP {
+            display	"One or more of the enabled framebuffer devices has a depth of 32bpp"
+            calculated  { is_substr(CYGDAT_DEVS_FRAMEBUF_STM32_FB0_FORMAT, "32BPP") ||
+                is_substr(CYGDAT_DEVS_FRAMEBUF_STM32_FB1_FORMAT, "32BPP") ||
+                is_substr(CYGDAT_DEVS_FRAMEBUF_STM32_FB2_FORMAT, "32BPP") ||
+                is_substr(CYGDAT_DEVS_FRAMEBUF_STM32_FB3_FORMAT, "32BPP") }
+            implements	CYGHWR_IO_FRAMEBUF_FUNCTIONALITY_32BPP
+        }
+        
+        cdl_option CYGHWR_DEVS_FRAMEBUF_STM32_FUNCTIONALITY_PALETTED {
+            display	"One or more of the enabled framebuffer devices uses a paletted display"
+            calculated  { is_substr(CYGDAT_DEVS_FRAMEBUF_STM32_FB0_FORMAT, "PAL") ||
+                is_substr(CYGDAT_DEVS_FRAMEBUF_STM32_FB1_FORMAT, "PAL") ||
+                is_substr(CYGDAT_DEVS_FRAMEBUF_STM32_FB2_FORMAT, "PAL") ||
+                is_substr(CYGDAT_DEVS_FRAMEBUF_STM32_FB3_FORMAT, "PAL") }
+            implements CYGHWR_IO_FRAMEBUF_FUNCTIONALITY_PALETTE
+            implements CYGHWR_IO_FRAMEBUF_FUNCTIONALITY_WRITEABLE_PALETTE
+        }
+
+        cdl_option CYGHWR_DEVS_FRAMEBUF_STM32_TRUE_COLOUR {
+            display	"One or more of the enabled framebuffer devices uses a true colour display"
+            calculated  { is_substr(CYGDAT_DEVS_FRAMEBUF_STM32_FB0_FORMAT, "TRUE") ||
+                is_substr(CYGDAT_DEVS_FRAMEBUF_STM32_FB1_FORMAT, "TRUE") ||
+                is_substr(CYGDAT_DEVS_FRAMEBUF_STM32_FB2_FORMAT, "TRUE") ||
+                is_substr(CYGDAT_DEVS_FRAMEBUF_STM32_FB3_FORMAT, "TRUE") }
+            implements CYGHWR_IO_FRAMEBUF_FUNCTIONALITY_TRUE_COLOUR
+        }
+    }
+
+    cdl_component CYGPKG_DEVS_FRAMEBUF_STM32_OPTIONS {
+        display "Framebuffer build options"
+        flavor  none
+        description   "
+	    Package specific build options including control over
+	    compiler flags used only in building the synthetic
+            target framebuffer device driver."
+
+        cdl_option CYGPKG_DEVS_FRAMEBUF_STM32_CFLAGS_ADD {
+            display "Additional compiler flags"
+            flavor  data
+            no_define
+            default_value { "" }
+            description   "
+                This option modifies the set of compiler flags for building
+                the synthetic target framebuffer device driver. These flags
+                are used in addition to the set of global flags."
+        }
+
+        cdl_option CYGPKG_DEVS_FRAMEBUF_STM32_CFLAGS_REMOVE {
+            display "Suppressed compiler flags"
+            flavor  data
+            no_define
+            default_value { "" }
+            description   "
+                This option modifies the set of compiler flags for building
+                the synthetic target framebuffer device driver. These flags
+                are removed from the set of global flags if present."
+        }
+    }
+}

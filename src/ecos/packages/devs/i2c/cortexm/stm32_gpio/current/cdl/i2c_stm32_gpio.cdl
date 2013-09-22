@@ -1,0 +1,71 @@
+# ====================================================================
+#
+#      i2c_stm32_gpio.cdl
+#
+#      eCos STM32 GPIO-based bitbanging I2C driver configuration data
+#
+# ====================================================================
+## ####ECOSGPLCOPYRIGHTBEGIN####                                            
+## -------------------------------------------                              
+## This file is part of eCos, the Embedded Configurable Operating System.   
+## Copyright (C) 2011 Free Software Foundation, Inc.                        
+##
+## eCos is free software; you can redistribute it and/or modify it under    
+## the terms of the GNU General Public License as published by the Free     
+## Software Foundation; either version 2 or (at your option) any later      
+## version.                                                                 
+##
+## eCos is distributed in the hope that it will be useful, but WITHOUT      
+## ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or    
+## FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License    
+## for more details.                                                        
+##
+## You should have received a copy of the GNU General Public License        
+## along with eCos; if not, write to the Free Software Foundation, Inc.,    
+## 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.            
+##
+## As a special exception, if other files instantiate templates or use      
+## macros or inline functions from this file, or you compile this file      
+## and link it with other works to produce a work based on this file,       
+## this file does not by itself cause the resulting work to be covered by   
+## the GNU General Public License. However the source code for this file    
+## must still be made available in accordance with section (3) of the GNU   
+## General Public License v2.                                               
+##
+## This exception does not invalidate any other reasons why a work based    
+## on this file might be covered by the GNU General Public License.         
+## -------------------------------------------                              
+## ####ECOSGPLCOPYRIGHTEND####                                              
+# ====================================================================
+######DESCRIPTIONBEGIN####
+#
+# Author(s):      reille
+# Contributors:
+# Date:           2013-05-25
+#
+#####DESCRIPTIONEND####
+# ====================================================================
+
+cdl_package CYGPKG_DEVS_I2C_CORTEXM_STM32_GPIO {
+    display     "GPIO-based bitbanging I2C driver for STM32"
+
+    parent      CYGPKG_IO_I2C
+    active_if   CYGPKG_IO_I2C
+    active_if   CYGPKG_HAL_CORTEXM_STM32 
+
+    description " 
+           This package provides a GPIO-based bitbanging I2C device driver for STM32."
+
+    include_dir cyg/io
+    compile     i2c_stm32_gpio.c
+
+    cdl_component CYGHWR_DEVS_I2C_CORTEXM_STM32_GPIO_BUS1 {
+        display         "STM32 GPIO-based bitbanging I2C bus 1"
+        flavor          bool
+        default_value   0
+        description "
+            Enable to use GPIO-based bitbanging I2C bus 1."
+    }
+}
+
+# EOF i2c_stm32_gpio.cdl

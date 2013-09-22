@@ -1,0 +1,14 @@
+/arch.inc////*////
+/basetype.h////*////
+/hal_arch.h////*////
+/hal_cache.h////*////
+/hal_intr.h////*////
+/hal_intr_excevt.h////*////
+/hal_intr_vecs.h////*////
+/hal_io.h////*////
+/hal_var_bank.h////*////
+/hal_var_bank.inc////*////
+/hal_var_sp.h////*////
+/hal_var_sp.inc////*////
+/sh_regs.h////*////
+/sh_stub.h////*////

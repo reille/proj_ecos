@@ -1,0 +1,4 @@
+/hal_diag.c////*////
+/hal_mips_upd985xx.ld////*////
+/var_misc.c////*////
+/variant.S////*////

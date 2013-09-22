@@ -1,0 +1,8 @@
+/hal_cache.h////*////
+/hal_diag.h////*////
+/lpc17xx_misc.h////*////
+/plf_stub.h////*////
+/var_arch.h////*////
+/var_intr.h////*////
+/var_io.h////*////
+/variant.inc////*////

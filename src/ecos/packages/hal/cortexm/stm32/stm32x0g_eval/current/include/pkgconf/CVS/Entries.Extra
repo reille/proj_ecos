@@ -1,0 +1,10 @@
+/mlt_cortexm_stm32x0g_eval_jtag.h////*////
+/mlt_cortexm_stm32x0g_eval_jtag.ldi////*////
+/mlt_cortexm_stm32x0g_eval_ram.h////*////
+/mlt_cortexm_stm32x0g_eval_ram.ldi////*////
+/mlt_cortexm_stm32x0g_eval_rom.h////*////
+/mlt_cortexm_stm32x0g_eval_rom.ldi////*////
+/mlt_cortexm_stm32x0g_eval_romint.h////*////
+/mlt_cortexm_stm32x0g_eval_romint.ldi////*////
+/mlt_cortexm_stm32x0g_eval_sram.h////*////
+/mlt_cortexm_stm32x0g_eval_sram.ldi////*////

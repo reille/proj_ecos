@@ -1,0 +1,5 @@
+/mpc8xxx.h////*////
+/var_cache.h////*////
+/var_intr.h////*////
+/var_regs.h////*////
+/variant.inc////*////

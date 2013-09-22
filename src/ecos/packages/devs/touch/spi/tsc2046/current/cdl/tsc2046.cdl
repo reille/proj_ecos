@@ -1,0 +1,165 @@
+#==========================================================================
+# 
+#       tsc2046.cdl
+# 
+#       eCos configuration data for the TSC2046 Touch screen
+# 
+#==========================================================================
+## ####ECOSGPLCOPYRIGHTBEGIN####                                            
+## -------------------------------------------                              
+## This file is part of eCos, the Embedded Configurable Operating System.   
+## Copyright (C) 2012 Free Software Foundation, Inc.
+##
+## eCos is free software; you can redistribute it and/or modify it under    
+## the terms of the GNU General Public License as published by the Free     
+## Software Foundation; either version 2 or (at your option) any later      
+## version.                                                                 
+##
+## eCos is distributed in the hope that it will be useful, but WITHOUT      
+## ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or    
+## FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License    
+## for more details.                                                        
+##
+## You should have received a copy of the GNU General Public License        
+## along with eCos; if not, write to the Free Software Foundation, Inc.,    
+## 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.            
+##
+## As a special exception, if other files instantiate templates or use      
+## macros or inline functions from this file, or you compile this file      
+## and link it with other works to produce a work based on this file,       
+## this file does not by itself cause the resulting work to be covered by   
+## the GNU General Public License. However the source code for this file    
+## must still be made available in accordance with section (3) of the GNU   
+## General Public License v2.                                               
+##
+## This exception does not invalidate any other reasons why a work based    
+## on this file might be covered by the GNU General Public License.         
+## -------------------------------------------                              
+## ####ECOSGPLCOPYRIGHTEND####                                              
+#==========================================================================
+######DESCRIPTIONBEGIN####
+# 
+# Author(s):    gthomas
+#               ccoutand updated for TSC2046 over SPI interface
+# Date:         2012-01-05
+# Purpose:      
+# Description:  Touch screen drivers for the TSC2046
+# 
+#####DESCRIPTIONEND####
+# 
+#==========================================================================
+
+cdl_package CYGPKG_DEVS_TOUCH_SPI_TSC2046 {
+    display     "Touch screen driver for the TSC2046 controller"
+    include_dir cyg/io
+
+    active_if   CYGPKG_IO_FILEIO
+    requires    CYGPKG_IO
+    requires    CYGPKG_IO_SPI
+    requires    CYGFUN_KERNEL_API_C
+
+    compile       -library=libextras.a tsc2046.c
+
+    description "Touch screen driver for the TSC2046 controller"
+
+    define_proc {
+      puts $::cdl_system_header "#define CYGDAT_DEVS_TOUCH_SPI_TSC2046_INL <cyg/io/tsc2046.inl>"
+    }
+
+    cdl_option CYGDAT_DEVS_TOUCH_SPI_TSC2046_NAME {
+        display "Device name for the touch screen driver"
+        flavor data
+        default_value {"\"/dev/ts\""}
+        description " This option specifies the name of the touch screen 
+        device"
+    }
+
+    cdl_option CYGDAT_DEVS_TOUCH_SPI_TSC2046_TRACE {
+        display       "Driver trace"
+        flavor        bool
+        default_value 0
+        description   "
+            Enable I2C transaction trace. Select to debug the driver."
+    }
+
+    cdl_option CYGNUM_DEVS_TOUCH_SPI_TSC2046_SCAN_FREQUENCY {
+        display       "Scan frequency in Hertz"
+        flavor data
+        legal_values  { 1 to 100 }
+        default_value { 100 }
+        description   "
+            Specifies the interval between samples."
+    }
+
+    cdl_option CYGNUM_DEVS_TOUCH_SPI_TSC2046_HORIZONTAL_SPAN {
+        display       "Width of the screen"
+        flavor        data
+        default_value { 400 }
+        description   "
+            Specifies the dimension of the screen in pixels (horizontally)"
+    }
+
+    cdl_option CYGNUM_DEVS_TOUCH_SPI_TSC2046_VERTICAL_SPAN {
+        display       "Height of the screen"
+        flavor        data
+        default_value { 240 }
+        description   "
+            Specifies the dimension of the screen in pixels (vertically)"
+    }
+
+    cdl_option CYGSEM_DEVS_TOUCH_SPI_TSC2046_VERTICAL_SWAP {
+        display       "Swap vertical measurements"
+        flavor        bool
+        default_value 1
+        description   "
+            Select this option to mirror the vertical measurement from the
+            controller."
+    }
+
+    cdl_option CYGSEM_DEVS_TOUCH_SPI_TSC2046_HORIZONTAL_SWAP {
+        display       "Swap horizontal measurements"
+        flavor        bool
+        default_value 1
+        description   "
+            Select this option to mirror the horizontal measurement from the
+            controller."
+    }
+
+    cdl_option CYGNUM_DEVS_TOUCH_SPI_TSC2046_EVENT_BUFFER_SIZE {
+        display       "Number of events the driver can buffer"
+        flavor        data
+        default_value { 32 }
+        description "
+            This option defines the size of the touchscreen device internal
+            buffer. The cyg_io_read() function will return as many of these
+            as there is space for in the buffer passed."
+    }
+
+    cdl_component CYGPKG_DEVS_TOUCH_SPI_TSC2046_OPTIONS {
+        display   "options"
+        flavor    none
+        no_define
+
+        cdl_option CYGPKG_DEVS_TOUCH_SPI_TSC2046_CFLAGS_ADD {
+            display       "Additional compiler flags"
+            flavor        data
+            no_define
+            default_value { "" }
+            description "
+               This option modifies the set of compiler flags for
+               building the touch screen driver package. These flags
+               are used in addition to the set of global flags."
+        }
+
+        cdl_option CYGPKG_DEVS_TOUCH_SPI_TSC2046_CFLAGS_REMOVE {
+            display       "Suppressed compiler flags"
+            flavor        data
+            no_define
+            default_value { "" }
+            description   "
+                This option modifies the set of compiler flags for
+                building the touch screen driver package. These flags 
+                are removed from the set of global flags if present."
+        }
+    }
+}

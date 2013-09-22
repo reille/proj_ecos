@@ -1,0 +1,12 @@
+/Makefile////*////
+/keyctrl.bmp////*////
+/keyctrl.c////*////
+/keynorm.bmp////*////
+/keynorm.c////*////
+/keynum.bmp////*////
+/keynum.c////*////
+/keyshft.bmp////*////
+/keyshft.c////*////
+/nxkbd.c////*////
+/nxkbd.syms////*////
+/srvconn.c////*////

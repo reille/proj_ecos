@@ -1,0 +1,6 @@
+/crtbeginS.c////*////
+/crtendS.c////*////
+/dlforce.c////*////
+/dload.cxx////*////
+/dynamic.ld////*////
+/loader.cxx////*////

@@ -1,0 +1,14 @@
+/COPYING////*////
+/ChangeLog////*////
+/Makefile.am////*////
+/Makefile.in////*////
+/acinclude.m4////*////
+/aclocal.m4////*////
+/configure////*////
+/configure.in////*////
+D/doc////////
+D/examples////////
+D/packages////////
+D/acsupport////////
+/README.host////*////
+D/ecos////////

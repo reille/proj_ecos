@@ -1,0 +1,12 @@
+/accept.2////*////
+/bind.2////*////
+/connect.2////*////
+/getpeername.2////*////
+/getsockname.2////*////
+/getsockopt.2////*////
+/ioctl.2////*////
+/poll.2////*////
+/select.2////*////
+/send.2////*////
+/shutdown.2////*////
+/socket.2////*////

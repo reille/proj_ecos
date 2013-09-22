@@ -1,0 +1,8 @@
+/context.S////*////
+/hal_intr.c////*////
+/hal_misc.c////*////
+/hal_mk_defs.c////*////
+/powerpc.ld////*////
+/ppc_stub.c////*////
+/redboot_linux_exec.c////*////
+/vectors.S////*////

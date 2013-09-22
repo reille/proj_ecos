@@ -1,0 +1,10 @@
+/arch.inc////*////
+/basetype.h////*////
+/hal_arch.h////*////
+/hal_cache.h////*////
+/hal_intr.h////*////
+/hal_io.h////*////
+/hal_smp.h////*////
+/i386.inc////*////
+/i386_stub.h////*////
+D/pkgconf////////

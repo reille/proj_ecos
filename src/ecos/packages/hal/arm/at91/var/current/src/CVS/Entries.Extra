@@ -1,0 +1,7 @@
+/at91_misc.c////*////
+/hal_diag.c////*////
+/hal_diag_dbg.c////*////
+/hal_diag_dcc.c////*////
+/hal_diag_dcc.h////*////
+/timer_pit.c////*////
+/timer_tc.c////*////

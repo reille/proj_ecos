@@ -1,0 +1,4 @@
+/kinetis_clocking.cdl////*////
+/kinetis_flexbus.cdl////*////
+/hal_cortexm_kinetis.cdl////*////
+/kinetis_irq_scheme.cdl////*////

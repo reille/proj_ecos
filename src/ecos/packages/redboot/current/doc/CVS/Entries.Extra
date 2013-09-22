@@ -1,0 +1,8 @@
+/.cvsignore////*////
+/makefile////*////
+/redboot.sgml////*////
+/redboot_cmds.sgml////*////
+/redboot_epilogue.sgml////*////
+/redboot_installing.sgml////*////
+/redboot_main.sgml////*////
+/redboot_rebuilding.sgml////*////

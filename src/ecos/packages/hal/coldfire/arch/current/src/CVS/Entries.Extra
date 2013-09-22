@@ -1,0 +1,7 @@
+/coldfire.ld////*////
+/coldfire_stub.c////*////
+/context.S////*////
+/hal_misc.c////*////
+/hal_mk_defs.c////*////
+/hal_startup.c////*////
+/vectors.S////*////

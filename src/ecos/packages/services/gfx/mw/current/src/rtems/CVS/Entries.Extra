@@ -1,0 +1,6 @@
+/Makefile.rtems////*////
+/mw_uid_test.cc////*////
+/net_cfg.h////*////
+/readme.rtems////*////
+/rtems_init.c////*////
+/rtemscfg.h////*////

@@ -1,0 +1,11 @@
+/except.cxx////*////
+/misc.cxx////*////
+/mqueue.cxx////*////
+/mutex.cxx////*////
+/pprivate.h////*////
+/pthread.cxx////*////
+/sched.cxx////*////
+/sem.cxx////*////
+/signal.cxx////*////
+/startup.cxx////*////
+/time.cxx////*////

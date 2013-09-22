@@ -1,0 +1,6 @@
+/synth.ld////*////
+/synth_diag.c////*////
+/synth_entry.c////*////
+/synth_intr.c////*////
+/synth_protocol.h////*////
+/synth_syscalls.c////*////

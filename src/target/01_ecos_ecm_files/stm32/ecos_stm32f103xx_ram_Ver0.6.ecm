@@ -1,0 +1,236 @@
+cdl_savefile_version 1;
+cdl_savefile_command cdl_savefile_version {};
+cdl_savefile_command cdl_savefile_command {};
+cdl_savefile_command cdl_configuration { description hardware template package };
+cdl_savefile_command cdl_package { value_source user_value wizard_value inferred_value };
+cdl_savefile_command cdl_component { value_source user_value wizard_value inferred_value };
+cdl_savefile_command cdl_option { value_source user_value wizard_value inferred_value };
+cdl_savefile_command cdl_interface { value_source user_value wizard_value inferred_value };
+
+cdl_configuration eCos {
+    description "" ;
+    hardware    stm32f10xxx ;
+    template    default ;
+    package -template CYGPKG_HAL current ;
+    package -template CYGPKG_IO current ;
+    package -template CYGPKG_IO_SERIAL current ;
+    package -template CYGPKG_INFRA current ;
+    package -template CYGPKG_KERNEL current ;
+    package -template CYGPKG_MEMALLOC current ;
+    package -template CYGPKG_ISOINFRA current ;
+    package -template CYGPKG_LIBC current ;
+    package -template CYGPKG_LIBC_I18N current ;
+    package -template CYGPKG_LIBC_SETJMP current ;
+    package -template CYGPKG_LIBC_SIGNALS current ;
+    package -template CYGPKG_LIBC_STARTUP current ;
+    package -template CYGPKG_LIBC_STDIO current ;
+    package -template CYGPKG_LIBC_STDLIB current ;
+    package -template CYGPKG_LIBC_STRING current ;
+    package -template CYGPKG_LIBC_TIME current ;
+    package -template CYGPKG_LIBM current ;
+    package -template CYGPKG_IO_WALLCLOCK current ;
+    package -template CYGPKG_ERROR current ;
+    package -hardware CYGPKG_HAL_CORTEXM current ;
+    package -hardware CYGPKG_HAL_CORTEXM_STM32 current ;
+    package -hardware CYGPKG_HAL_CORTEXM_STM32_STM32F10XXX current ;
+    package -hardware CYGPKG_DEVS_FLASH_AMD_AM29XXXXX_V2 current ;
+    package -hardware CYGPKG_DEVS_FLASH_STM32 current ;
+    package -hardware CYGPKG_DEVS_FLASH_SPI_M25PXX current ;
+    package -hardware CYGPKG_IO_SERIAL_CORTEXM_STM32 current ;
+    package -hardware CYGPKG_DEVS_WALLCLOCK_STM32 current ;
+    package -hardware CYGPKG_IO_SPI current ;
+    package -hardware CYGPKG_DEVS_SPI_CORTEXM_STM32 current ;
+    package -hardware CYGPKG_IO_ADC current ;
+    package -hardware CYGPKG_DEVS_ADC_CORTEXM_STM32 current ;
+    package -hardware CYGPKG_IO_USB current ;
+    package -hardware CYGPKG_IO_USB_SLAVE current ;
+    package -hardware CYGPKG_DEVS_USB_CORTEXM_STM32 current ;
+    package -hardware CYGPKG_IO_FLASH current ;
+    package -hardware CYGPKG_IO_FRAMEBUF current ;
+    package -hardware CYGPKG_DEVS_FRAMEBUF_STM32 current ;
+    package -hardware CYGPKG_DEVS_TOUCH_SPI_TSC2046 current ;
+    package -hardware CYGPKG_DEVS_TOUCH_CORTEXM_STM32F10XXX current ;
+    package CYGPKG_IO_FILEIO current ;
+};
+
+cdl_component CYG_HAL_STARTUP {
+    user_value RAM
+};
+
+cdl_option CYGNUM_HAL_VIRTUAL_VECTOR_CONSOLE_CHANNEL_BAUD {
+    user_value 115200
+};
+
+cdl_component CYGPKG_IO_SERIAL_DEVICES {
+    user_value 1
+};
+
+cdl_component CYGPKG_IO_ADC_DEVICES {
+    user_value 1
+};
+
+cdl_option CYGPKG_DEVS_ADC_CORTEXM_STM32_TRACE {
+    user_value 0
+};
+
+cdl_component CYGHWR_DEVS_ADC_CORTEXM_STM32_ADC1 {
+    user_value 1
+};
+
+cdl_component CYGHWR_DEVS_ADC_CORTEXM_STM32_ADC1_CHANNEL0 {
+    user_value 0
+};
+
+cdl_component CYGHWR_DEVS_ADC_CORTEXM_STM32_ADC1_CHANNEL14 {
+    user_value 0
+};
+
+cdl_component CYGHWR_DEVS_ADC_CORTEXM_STM32_ADC1_CHANNEL16 {
+    user_value 0
+};
+
+cdl_component CYGHWR_DEVS_ADC_CORTEXM_STM32_ADC1_CHANNEL17 {
+    user_value 0
+};
+
+cdl_component CYGHWR_DEVS_ADC_CORTEXM_STM32_ADC3 {
+    user_value 0
+};
+
+cdl_option CYGBLD_ISO_CTYPE_HEADER {
+    inferred_value 1 <cyg/libc/i18n/ctype.inl>
+};
+
+cdl_option CYGBLD_ISO_ERRNO_CODES_HEADER {
+    inferred_value 1 <cyg/error/codes.h>
+};
+
+cdl_option CYGBLD_ISO_ERRNO_HEADER {
+    inferred_value 1 <cyg/error/errno.h>
+};
+
+cdl_option CYGBLD_ISO_STDIO_FILETYPES_HEADER {
+    inferred_value 1 <cyg/libc/stdio/stdio.h>
+};
+
+cdl_option CYGBLD_ISO_STDIO_STREAMS_HEADER {
+    inferred_value 1 <cyg/libc/stdio/stdio.h>
+};
+
+cdl_option CYGBLD_ISO_STDIO_FILEOPS_HEADER {
+    inferred_value 1 <cyg/libc/stdio/stdio.h>
+};
+
+cdl_option CYGBLD_ISO_STDIO_FILEACCESS_HEADER {
+    inferred_value 1 <cyg/libc/stdio/stdio.h>
+};
+
+cdl_option CYGBLD_ISO_STDIO_FORMATTED_IO_HEADER {
+    inferred_value 1 <cyg/libc/stdio/stdio.h>
+};
+
+cdl_option CYGBLD_ISO_STDIO_CHAR_IO_HEADER {
+    inferred_value 1 <cyg/libc/stdio/stdio.h>
+};
+
+cdl_option CYGBLD_ISO_STDIO_DIRECT_IO_HEADER {
+    inferred_value 1 <cyg/libc/stdio/stdio.h>
+};
+
+cdl_option CYGBLD_ISO_STDIO_FILEPOS_HEADER {
+    inferred_value 1 <cyg/libc/stdio/stdio.h>
+};
+
+cdl_option CYGBLD_ISO_STDIO_ERROR_HEADER {
+    inferred_value 1 <cyg/libc/stdio/stdio.h>
+};
+
+cdl_option CYGBLD_ISO_STDLIB_STRCONV_HEADER {
+    inferred_value 1 <cyg/libc/stdlib/atox.inl>
+};
+
+cdl_option CYGBLD_ISO_STDLIB_ABS_HEADER {
+    inferred_value 1 <cyg/libc/stdlib/abs.inl>
+};
+
+cdl_option CYGBLD_ISO_STDLIB_DIV_HEADER {
+    inferred_value 1 <cyg/libc/stdlib/div.inl>
+};
+
+cdl_option CYGBLD_ISO_STRERROR_HEADER {
+    inferred_value 1 <cyg/error/strerror.h>
+};
+
+cdl_option CYGBLD_ISO_STRTOK_R_HEADER {
+    inferred_value 1 <cyg/libc/string/string.h>
+};
+
+cdl_option CYGBLD_ISO_STRING_LOCALE_FUNCS_HEADER {
+    inferred_value 1 <cyg/libc/string/string.h>
+};
+
+cdl_option CYGBLD_ISO_STRING_BSD_FUNCS_HEADER {
+    inferred_value 1 <cyg/libc/string/bsdstring.h>
+};
+
+cdl_option CYGBLD_ISO_STRING_MEMFUNCS_HEADER {
+    inferred_value 1 <cyg/libc/string/string.h>
+};
+
+cdl_option CYGBLD_ISO_STRING_STRFUNCS_HEADER {
+    inferred_value 1 <cyg/libc/string/string.h>
+};
+
+cdl_option CYGBLD_ISO_FNMATCH_HEADER {
+    user_value 1 <cyg/fileio/fnmatch.h>
+};
+
+cdl_option CYGBLD_ISO_C_TIME_TYPES_HEADER {
+    inferred_value 1 <cyg/libc/time/time.h>
+};
+
+cdl_option CYGBLD_ISO_C_CLOCK_FUNCS_HEADER {
+    inferred_value 1 <cyg/libc/time/time.h>
+};
+
+cdl_option CYGBLD_ISO_SIGNAL_NUMBERS_HEADER {
+    inferred_value 1 <cyg/libc/signals/signal.h>
+};
+
+cdl_option CYGBLD_ISO_SIGNAL_IMPL_HEADER {
+    inferred_value 1 <cyg/libc/signals/signal.h>
+};
+
+cdl_option CYGBLD_ISO_SETJMP_HEADER {
+    inferred_value 1 <cyg/libc/setjmp/setjmp.h>
+};
+
+cdl_option CYGBLD_ISO_DIRENT_HEADER {
+    user_value 1 <cyg/fileio/dirent.h>
+};
+
+cdl_option CYGBLD_ISO_OPEN_MAX_HEADER {
+    user_value 1 <cyg/fileio/limits.h>
+};
+
+cdl_option CYGBLD_ISO_NAME_MAX_HEADER {
+    user_value 1 <cyg/fileio/limits.h>
+};
+
+cdl_component CYGHWR_DEVS_SPI_CORTEXM_STM32_BUS1 {
+    user_value 1
+};
+
+cdl_option CYGHWR_DEVS_SPI_CORTEXM_STM32_BUS1_CS_GPIOS {
+    user_value "SPI_CS(B, 2), SPI_CS(G, 11)"
+};
+
+cdl_option CYGDAT_IO_FRAMEBUF_DEVICES {
+    user_value "   fb0 "
+};
+
+cdl_component CYGPKG_DEVS_FRAMEBUF_STM32_FB0 {
+    user_value 1
+};
+
+

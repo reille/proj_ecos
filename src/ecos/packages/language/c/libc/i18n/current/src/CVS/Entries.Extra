@@ -1,0 +1,12 @@
+/ctype.cxx////*////
+/internal.h////*////
+/locale.cxx////*////
+/mblen.cxx////*////
+/mbstowcs.cxx////*////
+/mbtowc.cxx////*////
+/mbtowc_c.cxx////*////
+/mbtowc_jp.cxx////*////
+/newlibctype.cxx////*////
+/wcstombs.cxx////*////
+/wctomb.cxx////*////
+/wctomb_jp.cxx////*////

@@ -1,0 +1,104 @@
+# ====================================================================
+#
+#      stm32f10xxx_ts.cdl
+#
+#      Touch screen - Hardware support for the STM32F10xxx board
+#
+# ====================================================================
+## ####ECOSGPLCOPYRIGHTBEGIN####                                            
+## -------------------------------------------                              
+## This file is part of eCos, the Embedded Configurable Operating System.   
+## Copyright (C) 2012 Free Software Foundation, Inc.
+##
+## eCos is free software; you can redistribute it and/or modify it under    
+## the terms of the GNU General Public License as published by the Free     
+## Software Foundation; either version 2 or (at your option) any later      
+## version.                                                                 
+##
+## eCos is distributed in the hope that it will be useful, but WITHOUT      
+## ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or    
+## FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License    
+## for more details.                                                        
+##
+## You should have received a copy of the GNU General Public License        
+## along with eCos; if not, write to the Free Software Foundation, Inc.,    
+## 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.            
+##
+## As a special exception, if other files instantiate templates or use      
+## macros or inline functions from this file, or you compile this file      
+## and link it with other works to produce a work based on this file,       
+## this file does not by itself cause the resulting work to be covered by   
+## the GNU General Public License. However the source code for this file    
+## must still be made available in accordance with section (3) of the GNU   
+## General Public License v2.                                               
+##
+## This exception does not invalidate any other reasons why a work based    
+## on this file might be covered by the GNU General Public License.         
+## -------------------------------------------                              
+## ####ECOSGPLCOPYRIGHTEND####                                              
+# ====================================================================
+######DESCRIPTIONBEGIN####
+#
+# Author(s):      reille
+# Date:           2013-05-04
+#
+#####DESCRIPTIONEND####
+#
+# ====================================================================
+
+cdl_package CYGPKG_DEVS_TOUCH_CORTEXM_STM32F10XXX {
+    display       "STM32F10XXX board touch screen support"
+
+    requires      CYGPKG_HAL_CORTEXM_STM32
+    requires      CYGHWR_DEVS_SPI_CORTEXM_STM32_BUS1
+
+    parent         CYGPKG_DEVS_TOUCH_SPI_TSC2046
+
+    include_dir   cyg/io
+    description   "Hardware support for the STM32F10XXX board"
+
+    define_proc {
+        puts $::cdl_system_header "#define CYGDAT_DEVS_TOUCH_SPI_TSC2046_PLF_INL <cyg/io/stm32f10xxx_ts.inl>"
+    }
+
+    cdl_component CYGPKG_DEVS_TOUCH_CORTEXM_STM32F10XXX_OPTIONS {
+        display "options"
+        flavor  none
+        no_define
+
+        cdl_option CYGPKG_DEVS_TOUCH_CORTEXM_STM32F10XXX_CFLAGS_ADD {
+            display       "Additional compiler flags"
+            flavor        data
+            no_define
+            default_value { "" }
+            description "
+               This option modifies the set of compiler flags for
+               building the touch screen driver package. These flags
+               are used in addition to the set of global flags."
+        }
+
+        cdl_option CYGPKG_DEVS_TOUCH_CORTEXM_STM32F10XXX_CFLAGS_REMOVE {
+            display "Suppressed compiler flags"
+            flavor  data
+            no_define
+            default_value { "" }
+            description   "
+                This option modifies the set of compiler flags for
+                building the touch screen driver package. These flags 
+                are removed from the set of global flags if present."
+        }
+    }
+
+    cdl_option CYGPKG_DEVS_TOUCH_CORTEXM_STM32F10XXX_TESTS {
+        display "STM32F10XXX touch screen test application"
+        active_if      CYGPKG_KERNEL
+        flavor         data
+        no_define
+        calculated    { "tests/stm32f10xxx_ts_test" }
+        description   "
+            This option specifies the set of tests for the STM32F10XXX board 
+            touch screen"
+    }
+}
+
+# EOF stm32f10xxx_ts.cdl

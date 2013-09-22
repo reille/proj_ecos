@@ -1,0 +1,14 @@
+/h8_sci.h////*////
+/mod_regs_adc.h////*////
+/mod_regs_bsc.h////*////
+/mod_regs_dmac.h////*////
+/mod_regs_intc.h////*////
+/mod_regs_pio.h////*////
+/mod_regs_sci.h////*////
+/mod_regs_sys.h////*////
+/mod_regs_tmr.h////*////
+/mod_regs_tpc.h////*////
+/mod_regs_wdt.h////*////
+/var_arch.h////*////
+/var_intr.h////*////
+/variant.inc////*////

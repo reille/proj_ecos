@@ -1,0 +1,13 @@
+/.cvsignore////*////
+/advanced.sgml////*////
+/build.sgml////*////
+/concepts.sgml////*////
+/jadetex.cfg////*////
+/language.sgml////*////
+/main.sgml////*////
+/makefile////*////
+/package.fig////*////
+/package.sgml////*////
+/reference.sgml////*////
+/repo.fig////*////
+/version.fig////*////

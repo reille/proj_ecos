@@ -1,0 +1,5 @@
+/context.S////*////
+/hal_misc.c////*////
+/openrisc.ld////*////
+/openrisc_stub.c////*////
+/vectors.S////*////

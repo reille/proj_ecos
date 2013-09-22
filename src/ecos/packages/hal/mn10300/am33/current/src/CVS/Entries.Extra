@@ -1,0 +1,5 @@
+/am33_serial.c////*////
+/mn10300_am33.ld////*////
+/redboot_linux_exec.c////*////
+/var_misc.c////*////
+/variant.S////*////

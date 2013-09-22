@@ -1,0 +1,14 @@
+/Makefile.am////*////
+/Makefile.in////*////
+/acinclude.m4////*////
+/aclocal.m4////*////
+/bulk-boundaries.tcl////*////
+/config.h.in////*////
+/configure////*////
+/configure.in////*////
+/list.tcl////*////
+/stamp-h.in////*////
+/usbchmod.c////*////
+/usbhost.c////*////
+/usbhost.tcl////*////
+/verbose.tcl////*////

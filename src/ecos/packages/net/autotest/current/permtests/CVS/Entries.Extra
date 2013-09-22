@@ -1,0 +1,7 @@
+/netauto_bootp.ptest////*////
+/netauto_corrupt.ptest////*////
+/netauto_failrx.ptest////*////
+/netauto_failtx.ptest////*////
+/netauto_rt.ptest////*////
+/netauto_snmp.ptest////*////
+/netauto_std.ptest////*////

@@ -1,0 +1,5 @@
+/usbs_msd.h////*////
+/usbs_msd.inl////*////
+/usbs_msd_io.h////*////
+/usbs_msd_opcode.h////*////
+/usbs_msd_scsi.h////*////

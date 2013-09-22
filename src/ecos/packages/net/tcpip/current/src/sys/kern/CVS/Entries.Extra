@@ -1,0 +1,10 @@
+/kern_subr.c////*////
+/sockio.c////*////
+/sys_generic.c////*////
+/sys_socket.c////*////
+/uipc_domain.c////*////
+/uipc_mbuf.c////*////
+/uipc_proto.c////*////
+/uipc_socket.c////*////
+/uipc_socket2.c////*////
+/uipc_syscalls.c////*////

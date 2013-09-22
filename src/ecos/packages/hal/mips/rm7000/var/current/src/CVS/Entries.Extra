@@ -1,0 +1,4 @@
+/mips_rm7000.ld////*////
+/var_misc.c////*////
+/var_mk_defs.c////*////
+/variant.S////*////

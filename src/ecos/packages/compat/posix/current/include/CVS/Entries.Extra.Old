@@ -1,0 +1,11 @@
+/export.h////*////
+/limits.h////*////
+/mutex.h////*////
+/muttypes.h////*////
+/pthread.h////*////
+/semaphore.h////*////
+/signal.h////*////
+/sigsetjmp.h////*////
+/time.h////*////
+/types.h////*////
+/utsname.h////*////

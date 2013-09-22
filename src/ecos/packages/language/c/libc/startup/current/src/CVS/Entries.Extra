@@ -1,0 +1,9 @@
+/_exit.cxx////*////
+/abort.cxx////*////
+/atexit.cxx////*////
+/cstartup.cxx////*////
+/environ.cxx////*////
+/exit.cxx////*////
+/invokemain.cxx////*////
+/main.cxx////*////
+/mainthread.cxx////*////

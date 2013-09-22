@@ -1,0 +1,9 @@
+/hal_diag.h////*////
+/mcf5272_devs.h////*////
+/var_arch.h////*////
+/var_basetype.h////*////
+/var_cache.h////*////
+/var_intr.h////*////
+/var_regs.h////*////
+/var_startup.h////*////
+/variant.inc////*////

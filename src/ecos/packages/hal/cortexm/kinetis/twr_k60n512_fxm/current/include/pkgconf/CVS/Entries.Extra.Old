@@ -1,0 +1,12 @@
+/mlt_kinetis_flash_sram2s_extram_rom.h////*////
+/mlt_kinetis_flash_sram2s_extram_rom.ldi////*////
+/mlt_kinetis_flash_sram2s_ram.h////*////
+/mlt_kinetis_flash_sram2s_ram.ldi////*////
+/mlt_kinetis_flash_unisram_extram.h////*////
+/mlt_kinetis_flash_unisram_extram.ldi////*////
+/mlt_kinetis_flash_unisram_extram_ram.h////*////
+/mlt_kinetis_flash_unisram_extram_ram.ldi////*////
+/mlt_kinetis_flash_unisram_extram_rom.h////*////
+/mlt_kinetis_flash_unisram_extram_rom.ldi////*////
+/mlt_kinetis_flash_unisram_ram.h////*////
+/mlt_kinetis_flash_unisram_ram.ldi////*////

@@ -1,0 +1,4 @@
+/hal_diag.c////*////
+/kinetis_clocking.c////*////
+/kinetis_ddram.c////*////
+/kinetis_misc.c////*////

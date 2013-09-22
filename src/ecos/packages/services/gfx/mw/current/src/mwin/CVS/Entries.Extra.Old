@@ -1,0 +1,14 @@
+/Makefile////*////
+/winclip.c////*////
+/winclip1.c////*////
+/winclip2.c////*////
+/windefw.c////*////
+/winevent.c////*////
+/winexpos.c////*////
+/winfont.c////*////
+/wingdi.c////*////
+/winmain.c////*////
+/winrgn.c////*////
+/winsbar.2////*////
+/winsbar.c////*////
+/winuser.c////*////

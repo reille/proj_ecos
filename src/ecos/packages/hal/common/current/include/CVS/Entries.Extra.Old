@@ -1,0 +1,12 @@
+/dbg-thread-syscall.h////*////
+/dbg-threads-api.h////*////
+/drv_api.h////*////
+/generic-stub.h////*////
+/hal_arbiter.h////*////
+/hal_endian.h////*////
+/hal_if.h////*////
+/hal_misc.h////*////
+/hal_spd.h////*////
+/hal_stub.h////*////
+/hal_tables.h////*////
+D/pkgconf////////
